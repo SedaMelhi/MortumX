@@ -447,7 +447,7 @@ header {
 }
 
 .five {
-  margin-top: 150px;
+  margin-top: 120px;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -457,6 +457,7 @@ header {
 .five__text {
   max-width: 915px;
   margin-left: 40px;
+  padding-right: 48px;
 }
 .five__orange {
   width: 100%;
@@ -521,7 +522,7 @@ header {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   margin: 0 auto;
-  margin-top: 192px;
+  margin-top: 100px;
   gap: 80px 32px;
 }
 
@@ -618,7 +619,7 @@ header {
 }
 
 .table-block {
-  margin-top: 240px;
+  margin-top: 170px;
 }
 .table-block .title {
   text-align: left;
@@ -678,7 +679,7 @@ header {
   justify-content: space-between;
 }
 .team-block {
-  margin-top: 240px;
+  margin-top: 170px;
 }
 .team-block .title {
   display: block;
