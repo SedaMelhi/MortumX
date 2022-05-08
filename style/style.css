@@ -751,7 +751,7 @@ footer .networks__item {
   cursor: pointer;
 }
 footer .networks__item:not(footer .networks__item:last-child) {
-  margin-left: 12px;
+  margin-right: 12px;
 }
 footer .networks__item svg {
   fill: #fff;
