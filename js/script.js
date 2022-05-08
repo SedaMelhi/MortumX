@@ -1,4 +1,9 @@
-AOS.init();
+window.addEventListener("load", function() {
+  const body = this.document.querySelector("body")
+  body.classList.add("animation")
+  document.querySelector(".load").style.display = "none";
+})
+AOS.init()
 $('.carousel').slick({
     infinite: true,
     slidesToShow: 4,
@@ -64,7 +69,6 @@ $(window).resize(function() {
     }
     center.classList.add('center-elem')
     center.previousSibling.classList.add('center-elem')
-    console.log(1)
 });
 carousel.addEventListener("touchend", function(){
     const center = document.querySelector(".slick-active")
