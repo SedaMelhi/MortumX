@@ -79,3 +79,102 @@ carousel.addEventListener("touchend", function(){
     center.previousSibling.classList.add('center-elem')
 })
  
+
+const menu_items = document.querySelectorAll(".menu__item a");
+const menu = document.querySelector(".menu")
+
+menu_items.forEach(item => item.addEventListener("click", function (e) {
+    
+       
+
+        let href = this.getAttribute('href').substring(1);
+    
+        const scrollTarget = document.getElementById(href);
+        const topOffset = menu.offsetHeight;
+        const elementPosition = scrollTarget.getBoundingClientRect().top;
+        const offsetPosition = elementPosition - topOffset;
+    
+        window.scrollBy({
+            top: offsetPosition,
+            behavior: 'smooth'
+        });
+    
+    
+}))
+
+
+const btn = document.querySelector(".btn")
+const module = document.querySelector(".module")
+const overlay = document.querySelector(".overlay")
+const close = document.querySelectorAll(".close svg")
+const submit = document.querySelector(".submit")
+const module2 = document.querySelector(".module2")
+
+
+
+btn.addEventListener("click", function(){
+  module.style.display = "block"
+  overlay.classList.remove('overlay__end')
+  overlay.classList.toggle('overlay__start')
+})
+
+module.addEventListener("click", function(event){
+  if(event.target == module || event.target == close[0] || event.target == close[1]){
+    overlay.classList.toggle('overlay__start')
+    overlay.classList.add('overlay__end')
+    setTimeout(() => module.style.display = "none", 500)
+    setTimeout(() => module2.style.display = "none", 500)
+  }
+})
+
+const form = document.querySelector('form')
+  form.addEventListener('submit', formSend)
+  async function formSend(e){
+    e.preventDefault();
+    let error = formValidate(form)
+
+    let formData = new FormData(form);
+   console.log(formData)
+    if(error === 0){
+      document.querySelector(".module2").style.display = "block";
+      let response = await fetch('../sendmail.php', {
+        method: 'POST',
+        body: formData
+      });
+      if(response.ok){
+        let result = await response.json();
+        alert(result.message);
+        form.reset();
+      }else{
+         alert('Ошибка')
+      }
+    }else{
+      document.querySelector('.error-text').style.display = 'block';
+    }
+  }
+  function formValidate(form){
+    let error = 0
+    let formReq = document.querySelectorAll('._req')
+    for(let input of formReq){
+      formRemoveError(input)
+      if(input.classList.contains('_email')){
+        if(emailTest(input)){
+          formAddError(input)
+          error++
+        }
+      }else if(input.value == ''){
+        formAddError(input)
+        error++;
+      }
+    }
+    return error
+  }
+  function formAddError(input){
+    input.classList.add('_error')
+  }
+  function formRemoveError(input){
+    input.classList.remove('_error')
+  }
+  function emailTest(input){
+    return !/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(input.value)
+  }
