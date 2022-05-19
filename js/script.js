@@ -115,66 +115,45 @@ const module2 = document.querySelector(".module2")
 btn.addEventListener("click", function(){
   module.style.display = "block"
   overlay.classList.remove('overlay__end')
-  overlay.classList.toggle('overlay__start')
+  overlay.classList.add('overlay__start')
 })
 
 module.addEventListener("click", function(event){
   if(event.target == module || event.target == close[0] || event.target == close[1]){
-    overlay.classList.toggle('overlay__start')
+    overlay.classList.remove('overlay__start')
     overlay.classList.add('overlay__end')
     setTimeout(() => module.style.display = "none", 500)
     setTimeout(() => module2.style.display = "none", 500)
   }
 })
 
-const form = document.querySelector('form')
-  form.addEventListener('submit', formSend)
-  async function formSend(e){
-    e.preventDefault();
-    let error = formValidate(form)
+jQuery(document).ready(function () {
+     
+  
+ 
 
-    let formData = new FormData(form);
-   console.log(formData)
-    if(error === 0){
-      document.querySelector(".module2").style.display = "block";
-      let response = await fetch('../sendmail.php', {
-        method: 'POST',
-        body: formData
-      });
-      if(response.ok){
-        let result = await response.json();
-        alert(result.message);
-        form.reset();
-      }else{
-         alert('Ошибка')
-      }
-    }else{
-      document.querySelector('.error-text').style.display = 'block';
-    }
-  }
-  function formValidate(form){
-    let error = 0
-    let formReq = document.querySelectorAll('._req')
-    for(let input of formReq){
-      formRemoveError(input)
-      if(input.classList.contains('_email')){
-        if(emailTest(input)){
-          formAddError(input)
-          error++
-        }
-      }else if(input.value == ''){
-        formAddError(input)
-        error++;
-      }
-    }
-    return error
-  }
-  function formAddError(input){
-    input.classList.add('_error')
-  }
-  function formRemoveError(input){
-    input.classList.remove('_error')
-  }
-  function emailTest(input){
-    return !/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(input.value)
-  }
+ jQuery('.send-form').click( function() {
+   var form = jQuery(this).closest('form');
+   
+   if ( form.valid() ) {
+    module2.style.display = 'block';
+     var actUrl = form.attr('action');
+
+     jQuery.ajax({
+       url: actUrl,
+       type: 'post',
+       dataType: 'html',
+       data: form.serialize(),
+       success: function(data) {
+         form.html(data);
+         form.css('opacity','1');
+       },
+       error:	 function() {
+            form.find('.status').html('серверная ошибка');
+       }
+     });
+   }
+ });
+
+
+});

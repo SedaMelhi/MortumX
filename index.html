@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet"  href="./style/slick.css">
     <link rel="stylesheet" href="./style/style.css">
@@ -24,26 +25,19 @@
                 </svg>    
             </div>
             <div class="form">
-                <h1 class="overlay__title">Let’s get in touch</h1>
-                <form action="">
+                <h1 class="overlay__title">Протестировать игру</h1>
+                <div class="overlay__text">Стань одним из первых тестировщиков
+                    нашей игры!</div>
+                <form action="sendmail.php" method="post">
                     <div class="flex">
-                        <input type="text" id="name" name="name" class="_req _name">
+                        <input type="text" name="name" id="name" class="name" required>
                         <label for="name">Имя и фамилия</label>
                     </div>
                 <div class="flex">
-                    <input type="email" name="email" id="email" class="_email _req">
+                    <input type="email" name="email" id="email" class="email" required>
                     <label for="email">Email</label>
                 </div>
-                <div class="flex">
-                    <input type="number" name="phone" id="phone" class="_req">
-                    <label for="phone">Номер телефона</label>
-                </div>
-                <div class="flex">
-                    <textarea name="message" id="question" rows="6"></textarea>
-                    <label for="question">Вопрос</label>
-                </div>
-                <p class="error-text">Заполните обязательные поля!</p>
-                <input type="submit" value="Отправить" class="submit" style="color: #fff">
+                <button type="button" class="send-form">Отправить</button>
             </form>
             </div>
             <div class="module2">
@@ -135,9 +129,9 @@
             <img src="./image/gameplay.png">
         </div>
         <div class="gameplay__bg">
-            <img src="./image/plane.png" class="plane" data-aos="new-animation" data-aos-duration = "1200" data-aos-easing="ease-in" data-aos-anchor-placement="bottom-bottom">
+            <img src="./image/plane.png" class="plane" data-aos="new-animation" data-aos-duration = "1900" data-aos-easing="ease-in" data-aos-offset="150" data-aos-delay="200">
             <div class="gameplay__block_wrap">
-                <div class="gameplay__block" data-aos="fade-up" data-aos-duration = "400" data-aos-delay="200">
+                <div class="gameplay__block" data-aos="fade-up" data-aos-duration = "900" data-aos-delay="300">
                     <div class="gameplay__title">GAMEPLAY</div>
                     <div class="gameplay__description">
                         Игровой процесс MortumX разработан таким образом, что вращается вокруг ваших навыков и командной
@@ -152,8 +146,8 @@
     </div> 
     
     <div class="three">
-        <div class="three__item" data-aos="fade-up" data-aos-easing="easy-in" data-aos-duration="400">
-            <div class="three__number" data-aos="flip-left" data-aos-duration="400" data-aos-delay="400">1</div>
+        <div class="three__item" data-aos="fade-up" data-aos-easing="easy-in" data-aos-duration="800" data-aos-delay="200" data-aos-offset="200">
+            <div class="three__number" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="500">1</div>
             <div class="three__block">
                 <div class="three__image">
                     <img src="./image/three1.png" alt="image">
@@ -169,8 +163,8 @@
                 </div>
             </div>
         </div>
-        <div class="three__item" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200" data-aos-offset="200">
-            <div class="three__number" data-aos="flip-left" data-aos-duration="600" data-aos-delay="600">2</div>
+        <div class="three__item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="900" data-aos-offset="200">
+            <div class="three__number" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="1200">2</div>
             <div class="three__block">
                 <div class="three__image">
                     <img src="./image/three2.png" alt="image">
@@ -190,16 +184,16 @@
     
     <div class="four" id="nftItems">
         <div class="wrap">
-            <div class="title" data-aos="fade-up" data-aos-duration="400"> 
+            <div class="title" data-aos="fade-up" data-aos-duration="700" data-aos-delay="200"> 
                 <h2>Внутриигровые <span>NFT</span> ITEMS</h2> 
                 <div class="sign">Available soon</div>
             </div>
-            <div class="description" data-aos="fade-up" data-aos-duration="400" data-aos-delay="100">
+            <div class="description" data-aos="fade-up" data-aos-duration="700" data-aos-delay="400">
                 Зарабатывай NFT Items, и игровые ресурсы играя в разные режимы.
                 Продавай их на аукционе и зарабатывай деньги.
             </div>
         </div>
-        <div class="carousel__block" data-aos="fade" data-aos-duration="400" data-aos-delay="300">
+        <div class="carousel__block" data-aos="fade" data-aos-duration="500" data-aos-delay="500">
             <svg class="prev_arrow" width="20" height="38" viewBox="0 0 20 38" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M18.75 36.5L1.25 19L18.75 1.5" stroke="#FF421B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -289,16 +283,17 @@
         <div class="five__block">
             <div class="five__image">
                 <div class="five__orange">
+                    <img src="./image/five.png" alt="" class="player" data-aos="player" data-aos-duration="1300" data-aos-easing="easy-in" data-aos-delay="200" data-aos-anchor-placement="center-bottom">  
                 </div> 
-                <img src="./image/five.png" alt="" class="player" data-aos="player" data-aos-duration="700" data-aos-easing="easy-in" data-aos-anchor-placement="center-bottom">  
+                <div class="five__shadow"></div> 
             </div>
             <div class="five__text">
-                <div class="title" data-aos="fade" data-aos-duration="400" data-aos-easing="easy-out">Персонажи</div>
+                <div class="title" data-aos="fade" data-aos-duration="700" data-aos-easing="easy-out"  data-aos-delay="100" data-aos-offset="200">Персонажи</div>
                 <ul class="description">
-                    <li class="description__item" data-aos="fade-left" data-aos-delay="100"  data-aos-duration="400" data-aos-easing="easy-in-out" data-aos-anchor-placement="bottom-bottom">В MortumX: Survive and Dominate вы играете за героев. Герои делятся на 3 редкости</li>
-                    <li class="description__item" data-aos="fade-left" data-aos-easing="easy-in-out" data-aos-delay="200" data-aos-duration="400" data-aos-anchor-placement="bottom-bottom">Уровень редкости персонажа определяет кол-во доступных игр (KB), наличие уникальных скиллов и боевых характеристик</li>
-                    <li class="description__item" data-aos="fade-left" data-aos-easing="easy-in-out" data-aos-delay="300" data-aos-duration="400" data-aos-anchor-placement="bottom-bottom">В PvP режимах герои зарабатывают крипту, расходуя KB. В PvE режиме можно собирать ресурсы, и при этом KB не расходуется</li>
-                    <li class="description__item" data-aos-easing="easy-in-out" data-aos="fade-left" data-aos-delay="400" data-aos-duration="400" data-aos-anchor-placement="bottom-bottom">Каждый персонаж имеет доступное кол-во игр, которые расходуются во время игры</li>
+                    <li class="description__item" data-aos="fade-left" data-aos-delay="200"  data-aos-duration="700" data-aos-easing="easy-in-out">В MortumX: Survive and Dominate вы играете за героев. Герои делятся на 3 редкости</li>
+                    <li class="description__item" data-aos="fade-left" data-aos-easing="easy-in-out" data-aos-delay="300" data-aos-duration="700" >Уровень редкости персонажа определяет кол-во доступных игр (KB), наличие уникальных скиллов и боевых характеристик</li>
+                    <li class="description__item" data-aos="fade-left" data-aos-easing="easy-in-out" data-aos-delay="400" data-aos-duration="700" >В PvP режимах герои зарабатывают крипту, расходуя KB. В PvE режиме можно собирать ресурсы, и при этом KB не расходуется</li>
+                    <li class="description__item" data-aos-easing="easy-in-out" data-aos="fade-left" data-aos-delay="500" data-aos-duration="700" >Каждый персонаж имеет доступное кол-во игр, которые расходуются во время игры</li>
                 </ul>
             </div>     
         </div>
@@ -309,7 +304,7 @@
             <div class="card__top">
                 <div class="card__sign sign_black">#16</div>
                 <div class="card__sign sign_green">Epic</div>
-                <div class="card__bg" data-aos="card" data-aos-delay="100" data-aos-duration="400" data-aos-anchor-placement="bottom-bottom"></div>
+                <div class="card__bg" data-aos="card" data-aos-delay="200" data-aos-duration="700" data-aos-anchor-placement="bottom-bottom"></div>
             </div>
             <div class="card__bottom">
                 <div class="card__title">Ghost</div>
@@ -320,7 +315,7 @@
             <div class="card__top">
                 <div class="card__sign sign_black">#16</div>
                 <div class="card__sign sign_blue">Common</div>
-                <div class="card__bg" data-aos="card" data-aos-delay="200" data-aos-duration="400" data-aos-anchor-placement="bottom-bottom"></div>
+                <div class="card__bg" data-aos="card" data-aos-delay="400" data-aos-duration="700" data-aos-anchor-placement="bottom-bottom"></div>
             </div>
             <div class="card__bottom">
                 <div class="card__title">Berserk</div>
@@ -331,7 +326,7 @@
             <div class="card__top">
                 <div class="card__sign sign_black">#16</div>
                 <div class="card__sign sign_orange">Legendary</div>
-                <div class="card__bg" data-aos="card" data-aos-delay="300" data-aos-duration="400" data-aos-anchor-placement="bottom-bottom"></div>
+                <div class="card__bg" data-aos="card" data-aos-delay="600" data-aos-duration="700" data-aos-anchor-placement="bottom-bottom"></div>
             </div>
             <div class="card__bottom">
                 <div class="card__title">Samurai</div>
@@ -342,7 +337,7 @@
             <div class="card__top">
                 <div class="card__sign sign_black">#16</div>
                 <div class="card__sign sign_green">Epic</div>
-                <div class="card__bg" data-aos="card" data-aos-delay="100" data-aos-duration="400" data-aos-anchor-placement="bottom-bottom"></div>
+                <div class="card__bg" data-aos="card" data-aos-delay="200" data-aos-duration="700" data-aos-anchor-placement="bottom-bottom"></div>
             </div>
             <div class="card__bottom">
                 <div class="card__title">B1adarov</div>
@@ -353,7 +348,7 @@
             <div class="card__top">
                 <div class="card__sign sign_black">#16</div>
                 <div class="card__sign sign_orange">Legendary</div>
-                <div class="card__bg" data-aos="card" data-aos-delay="200" data-aos-duration="400" data-aos-anchor-placement="bottom-bottom"></div>
+                <div class="card__bg" data-aos="card" data-aos-delay="400" data-aos-duration="700" data-aos-anchor-placement="bottom-bottom"></div>
             </div>
             <div class="card__bottom">
                 <div class="card__title">Samurai</div>
@@ -364,7 +359,7 @@
             <div class="card__top">
                 <div class="card__sign sign_black">#16</div>
                 <div class="card__sign sign_blue">Common</div>
-                <div class="card__bg" data-aos="card" data-aos-delay="300" data-aos-duration="400" data-aos-anchor-placement="bottom-bottom"></div>
+                <div class="card__bg" data-aos="card" data-aos-delay="600" data-aos-duration="700" data-aos-anchor-placement="bottom-bottom"></div>
             </div>
             <div class="card__bottom">
                 <div class="card__title">Meta Hadji</div>
@@ -431,30 +426,30 @@
 
     <div class="team-block">
         <div class="wrap">
-            <div class="title" data-aos="fade-up" data-aos-duration="400">Наша команда</div>
+            <div class="title" data-aos="fade-up" data-aos-duration="700" data-aos-delay="200">Наша команда</div>
             <div class="team">
-                <div class="team__item" data-aos="zoom-out" data-aos-duration="400" data-aos-delay="100" data-aos-anchor-placement="center-bottom">
+                <div class="team__item" data-aos="zoom-out" data-aos-duration="700" data-aos-delay="300" data-aos-anchor-placement="center-bottom">
                     <div class="team__image" >
                         <img src="./image/team1.png">
                     </div>
                     <div class="team__title" >Ахмад Исаков</div>
                     <div class="team__subtitle" >Founder & CEO</div>
                 </div>
-                <div class="team__item" data-aos="zoom-out" data-aos-duration="400" data-aos-delay="200" data-aos-anchor-placement="center-bottom">
+                <div class="team__item" data-aos="zoom-out" data-aos-duration="700" data-aos-delay="400" data-aos-anchor-placement="center-bottom">
                     <div class="team__image" >
                         <img src="./image/team2.png">
                     </div>
                     <div class="team__title" >Хаджи Баймурзаев</div>
                     <div class="team__subtitle" >UE4 developer</div>
                 </div>
-                <div class="team__item" data-aos="zoom-out" data-aos-duration="400" data-aos-delay="300" data-aos-anchor-placement="center-bottom">
+                <div class="team__item" data-aos="zoom-out" data-aos-duration="700" data-aos-delay="500" data-aos-anchor-placement="center-bottom">
                     <div class="team__image">
                         <img src="./image/team3.png">
                     </div>
                     <div class="team__title" >Саид Муслимов</div>
                     <div class="team__subtitle" >3D modeller</div>
                 </div>
-                <div class="team__item" data-aos="zoom-out" data-aos-duration="400" data-aos-delay="400" data-aos-anchor-placement="center-bottom">
+                <div class="team__item" data-aos="zoom-out" data-aos-duration="700" data-aos-delay="600" data-aos-anchor-placement="center-bottom">
                     <div class="team__image">
                         <img src="./image/team4.png">
                     </div>
@@ -510,6 +505,8 @@
     </footer>
     
     <script src="js/jquery.js"></script>
+    <script src="./js/jquery.maskedinput.js"></script>
+    <script src="./js/jquery.validate.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script type="text/javascript" src="js/slick.min.js"></script>
     <script src="js/script.js"></script>
